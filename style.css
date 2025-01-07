@@ -1,3 +1,4 @@
+/* Base Styles (for mobile devices by default) */
 body {
     margin: 0;
     background-color: #e1f3d2;
@@ -5,35 +6,32 @@ body {
 }
 
 /* header */
-
 .header {
     display: flex;
+    flex-direction: column;  /* Stack content on smaller screens */
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     text-align: center;
     height: 30vh;
-    color:#335048;
+    color: #335048;
 }
 
 .pricing-plan h1 {
-    font-size: 4.5rem;
+    font-size: 2.5rem;  /* Smaller font size for mobile */
     margin: 0;
 }
 
 .pricing-plan p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;  /* Smaller font size for mobile */
     margin: 0;
     margin-top: 5%;
 }
 
-
-
-
-
- /* price-plan */
+/* price-plan */
 .price-container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;  /* Stack cards vertically on mobile */
+    justify-content: center;
     align-items: center;
     height: 70vh;
 }
@@ -44,15 +42,13 @@ body {
     align-items: center;
     align-content: center;
     text-align: center;
-
     background-color: rgb(49, 106, 90);
-    height: 65%;
-    width: 20%;
+    height: 50%;  /* Reduce height on mobile */
+    width: 80%;  /* Set width to 80% for mobile */
     border-radius: 45px;
     color: aliceblue;
-
-    /* Shadow for all cards */
     box-shadow: 15px 15px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;  /* Add margin between price cards */
 }
 
 /* Shared styles for all h2 tags */
@@ -60,16 +56,15 @@ body {
 .header-2 h2, 
 .header-3 h2 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;  /* Smaller font size for mobile */
 }
 
 /* Shared styles for all p tags */
 .header-1 p, 
 .header-2 p, 
 .header-3 p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;  /* Smaller font size for mobile */
 }
-
 
 /* button */
 .button {
@@ -79,8 +74,79 @@ body {
     border-radius: 50px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .button:hover {
     background-color: #76b8a5;
+}
+
+/* Media Queries */
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 768px) {
+    .pricing-plan h1 {
+        font-size: 3rem;
+    }
+
+    .pricing-plan p {
+        font-size: 1.4rem;
+    }
+
+    .price-container {
+        flex-direction: row;  /* Arrange cards horizontally on tablets */
+        gap: 20px;  /* Add space between cards */
+    }
+
+    .price-1, .price-2, .price-3 {
+        height: 40%;
+        width: 30%;  /* Set each card to take 30% of the width */
+        margin-bottom: 0;  /* Remove margin between cards */
+    }
+
+    .header-1 h2, .header-2 h2, .header-3 h2 {
+        font-size: 1.8rem;
+    }
+
+    .header-1 p, .header-2 p, .header-3 p {
+        font-size: 1.4rem;
+    }
+
+    .button {
+        padding: 12px 25px;
+    }
+}
+
+/* Desktop and Laptop */
+@media (min-width: 769px) {
+    .pricing-plan h1 {
+        font-size: 4.5rem;
+    }
+
+    .pricing-plan p {
+        font-size: 1.5rem;
+    }
+
+    .price-container {
+        flex-direction: row;  /* Arrange cards horizontally on desktop */
+        justify-content: space-around;
+    }
+
+    .price-1, .price-2, .price-3 {
+        height: 65%;
+        width: 25%;  /* Set each card to take 20% of the width */
+        margin-bottom: 0;
+    }
+
+    .header-1 h2, .header-2 h2, .header-3 h2 {
+        font-size: 2rem;
+    }
+
+    .header-1 p, .header-2 p, .header-3 p {
+        font-size: 1.5rem;
+    }
+
+    .button {
+        padding: 14px 30px;
+    }
 }
